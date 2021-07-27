@@ -277,6 +277,7 @@ AISData AISDecoder::aisPayloadHandler(std::string unparsed){
 
 //FUNCTION: Takes an AIS message string from serial and splits it into its sub parts
 //INPUT: A line from serial
+//OUTPUT: An AISData object
 AISData AISDecoder::parseNMEA(std::string string){
     std::vector<std::string> parts {};
     size_t pos = 0;
