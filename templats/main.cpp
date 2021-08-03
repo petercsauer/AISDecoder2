@@ -4,7 +4,7 @@
  */
 
 #include <stdio.h>
-
+#include <iostream>
 #include "serialEx.h"
 #include "udpEx.h"
 
@@ -32,12 +32,15 @@ int main(int argc, char **argv)
     AIS->signal_vesselState_info.connect(
                boost::bind(&udpEx::slot_vesselState_info, &mapServer, _1));
     
+    std::string longString = "";
     while(true)
     {
         // the scheduler goes here, but just sleep for now
-        // usleep(10000); // run at 100Hz
+        usleep(2000); // run at 20Hz
 
-        AIS->clockTask();
+        longString = AIS->clockTask(longString);
+        // std::cout<<"NEW ----------\n"<<longString<<std::endl;
+
         //mapServer.clockTask();
     }
     return 0;

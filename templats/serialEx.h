@@ -29,7 +29,7 @@ class serialInterface
 {
     public:
         serialInterface(const std::string &portName);
-        void clockTask();
+        std::string clockTask(std::string longString);
 
         // signals to send out, connections in main
         typedef boost::signals2::signal <void(HlcOcuStateVehicle)> stateVehicle_signal_t;

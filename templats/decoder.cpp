@@ -289,7 +289,6 @@ AISData AISDecoder::parseNMEA(std::string string){
         string.erase(0, pos + delimiter.length());
     }
     if (parts.size() > 0 && parts.at(0) == "!AIVDM"){
-        std::cout << "made it" << std::endl;
         return aisPayloadHandler(parts[5]);
     }
     else{
