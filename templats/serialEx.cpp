@@ -55,8 +55,12 @@ std::string serialInterface::clockTask(std::string longString)
                 vehicleState.speedOverGround_knots = ais.sog; // float
                 vehicleState.gpsFix = false; // bool
                 vehicleState.courseOverGround_deg = ais.cog;// float
-                vehicleState.vehicleType = ais.type; // move to VEHICLETYPE
-                vehicleState.vehicleName = "ais input"; // 20 char string, will pad
+                vehicleState.vehicleType = 11; // move to VEHICLETYPE
+                if (ais.type == 4)
+                {
+                     vehicleState.vehicleType = 10; // move to VEHICLETYPE
+                }
+                vehicleState.vehicleName = "AIS Input"; // 20 char string, will pad
                 vehicleState.vehicleID = ais.mmsi; // uint32_t, unique id (has name?)
 
                 // send the data to the Udp Handeler
